@@ -56,7 +56,7 @@ vcard_img='my-vcard.svg'
 vcard_img_color='my-vcard_color.svg'
 
 
-defaultVCard={
+defaultVCard0={
     'name': '',
     'displayname': '',
     'email': '',
