@@ -95,6 +95,14 @@ def display_svg(vcard_img_svg):
 menuOptions=['Home','Colored VCard','Animated VCard']
 
 if __name__ == "__main__":
+    # Ver0_1 (9/22/2023)
+    st.set_page_config(
+        page_title='QRCodedVCard',
+        # page_icon=icon,
+        layout='centered',  # layout='wide',
+        initial_sidebar_state='auto',  # 'auto', 'expanded', 'collapsed'
+        )
+    
     st.title(CODE_TITLE)
     st.caption(CODE_VER)
     # ------------------------------------------------------------------------------------------------------
