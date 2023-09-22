@@ -40,7 +40,8 @@ from streamlit_option_menu import option_menu  # Ver0_1 (9/11/2023)
 # - Display a svg file in streamlit app
 # https://discuss.streamlit.io/t/display-svg/172/4
 
-CODE_TITLE='st_JY_qrCodedVCard0_1.py'
+# CODE_TITLE='st_JY_qrCodedVCard0_1.py'
+CODE_TITLE='QR Coded VCard'
 CODE_VER='v 0.1'
 
 # # INPUT CONSTANTS
