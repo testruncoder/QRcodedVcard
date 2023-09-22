@@ -60,7 +60,7 @@ url_input='www.rayem.com'
 vcard_img='my-vcard.svg'
 vcard_img_color='my-vcard_color.svg'
 
-defaultVCard={
+defaultVCard0={
     'name': '',
     'displayname': '',
     'email': '',
@@ -72,7 +72,7 @@ defaultVCard={
     'url': '',
 }
 
-defaultVCard = jyvc
+defaultVCard = defaultVCard0
 st.markdown(defaultVCard)
 
 # ------------ END OF INPUT CONSTANTS -------------
