@@ -60,18 +60,6 @@ url_input='www.rayem.com'
 vcard_img='my-vcard.svg'
 vcard_img_color='my-vcard_color.svg'
 
-jyvc={
-    'name': 'John Yoon',
-    'displayname': 'John Yoon, Ph.D.',
-    'email': 'drjyoon@gmail.com',
-    'city': 'Tucson',
-    'region': 'Arizona',
-    'org': 'Rayem',
-    'title': 'Founder/President',
-    'cellphone': '520-481-3439',
-    'url': 'www.rayem.com',
-}
-
 defaultVCard={
     'name': '',
     'displayname': '',
