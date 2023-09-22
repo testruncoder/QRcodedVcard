@@ -73,7 +73,7 @@ defaultVCard0={
 }
 
 defaultVCard = defaultVCard0
-st.markdown(defaultVCard)
+# st.markdown(defaultVCard)
 
 # ------------ END OF INPUT CONSTANTS -------------
 
