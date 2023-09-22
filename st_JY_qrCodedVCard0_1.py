@@ -31,7 +31,7 @@ from streamlit_option_menu import option_menu  # Ver0_1 (9/11/2023)
 
 # -----------------------------------------------------------------------------------------------------------------
 # st_JY_qrCodeGenVCard0.py - Ver0 (7/27/2023)
-# C:\Users\email\OneDrive\DesktopSP7\JY_pyTools\QRcodeGeneratorVCard\st_JY_qrCodeGenVCard0.py
+# 
 # (1) Generate a QR code in a vCard format per input of contact information
 # Therefore, when the QR code is read by a mobile phone camera, the contact info from the QR code
 # can be saved into the contact list on the phone.
@@ -45,18 +45,6 @@ CODE_TITLE='QR Coded VCard'
 CODE_VER='v 0.1'
 
 # # INPUT CONSTANTS
-name_input='John Yoon'
-# name_input='Jennie Yoon'
-displayname_input='John Yoon, Ph.D.'
-# displayname_input='Jennie Yoon'
-email_input='drjyoon@gmail.com'
-city_input='Tucson'
-region_input='Arizona'
-org_input='Rayem'
-title_input='Founder/President'
-cellphone_input='520-481-3439'
-cellphone_input='520-730-4695'
-url_input='www.rayem.com'
 
 vcard_img='my-vcard.svg'
 vcard_img_color='my-vcard_color.svg'
