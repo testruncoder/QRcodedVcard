@@ -1,13 +1,14 @@
 import streamlit as st
-import streamlit as st
 from segno import helpers
 
-# import base64
-from io import StringIO
-import matplotlib.pyplot as plt
-import numpy as np
+import datetime  # SubVer0_2 (12/04/2023)
 
-import segno  # Ver0_1 (7/28/2023)
+# import base64
+# from io import StringIO
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# import segno  # Ver0_1 (7/28/2023)
 
 from streamlit_option_menu import option_menu  # Ver0_1 (9/11/2023)
 
@@ -21,8 +22,10 @@ from st_JY_qrCodedVCard0_2_util import(
 # # # # venv: stvenv # # #
 
 # -----------------------------------------------------------------------------------------------------------------
-# st_JY_qrCodeGenVCard0_2_mono_lib.py - Ver0_2 (9/22/2023)
-# - Create a standard QR code in black and white;
+# st_JY_qrCodeGenVCard0_2_mono_lib.py - Ver0_2 (12/04, 9/22/2023)
+# - Create a standard QR code in black and white (9/22/2023);
+# - Updates:
+# (1) Create an output SVG file name with a time stamp (12/04/2023)
 
 
 # -----------------------------------------------------------------------------------------------------------------
@@ -65,11 +68,10 @@ region_input='Arizona'
 org_input='Rayem'
 title_input='Founder/President'
 cellphone_input='520-481-3439'
-cellphone_input='520-730-4695'
 url_input='www.rayem.com'
 
-vcard_img='my-vcard.svg'
-vcard_img_color='my-vcard_color.svg'
+# vcard_img='my-vcard.svg'  # Disabled - SubVer0_2 (12/04/2023)
+                        # vcard_img_color='my-vcard_color.svg'
 
 # jyvc={
 #     'name': 'John Yoon',
@@ -149,6 +151,12 @@ def qrCodedVcard_mono():
             #                             email=('me@example.org', 'another@example.org'),
             #                             url=['http://www.example.org', 'https://example.org/~joe'])
 
+            # # Create a name of an output vcard image (i.e., vcard_img) with a time stamp. - SubVer0_2 (12/04/2023) 
+            now0=datetime.datetime.now()
+            timestamp0=str(now0.strftime('%Y%m%d_%H%M%S'))
+            vcard_img='my-vcard_'+f'{timestamp0}.svg'
+            # ------------------------------- END OF SubVer0_2 (12/04/2023) ------------------------------------------
+
             qrcode.save(vcard_img, scale=scale)  # scale in pixel; You can add: unit='mm' or 'cm'; 
             
             c1,c2,c3=st.columns(3)
@@ -167,7 +175,8 @@ def qrCodedVcard_mono():
                 render_svg(line_string)
 
             for i in range(14):
-                st.markdown('')       
+                st.markdown('')     
+            st.info(f'INSTRUCTION:   \nSaved a QR Code as "{vcard_img}"')
         # ---------------------------------- END OF st.form('vCard in QR Code) ----------------------------------------
     
     if st.button('Clear',key='clearbtn_mono0'):
@@ -177,4 +186,4 @@ def qrCodedVcard_mono():
         st.sidebar.markdown('')
         st.markdown('')
 
-# ############################ END OF MAIN ###############################
+# ############################ END OF qrCodedVcard_mono() ###############################
