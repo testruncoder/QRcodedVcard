@@ -10,6 +10,8 @@ import numpy as np
 
 import segno  # Ver0_1 (7/28/2023)
 
+import datetime  # SubVer0_2 (12/04/2023)
+
 from streamlit_option_menu import option_menu  # Ver0_1 (9/11/2023)
 
 from urllib.request import urlopen  # To delete 7/29/2023
@@ -22,10 +24,11 @@ from st_JY_qrCodedVCard0_2_util import(
 # # # # venv: stvenv # # #
 
 # -----------------------------------------------------------------------------------------------------------------
-# st_JY_qrCodeGenVCard0_2_anim_lib.py - Ver0_2 (9/22/2023)
+# st_JY_qrCodeGenVCard0_2_anim_lib.py - Ver0_2 (12/04, 9/22/2023)
 # - Create a standard QR code with animation;
 # https://segno.readthedocs.io/en/stable/artistic-qrcodes.html
-
+# - Updates:
+# (1) Create an output SVG file name with a time stamp (12/04/2023)
 
 # -----------------------------------------------------------------------------------------------------------------
 # st_JY_qrCodeGenVCard0_1.py - Ver0_1 (9/11, 7/28/2023)
@@ -38,8 +41,6 @@ from st_JY_qrCodedVCard0_2_util import(
 
 # - Features:
 # (1) Added st.text_input in a side pandel;
-# (2)
-
 
 # -----------------------------------------------------------------------------------------------------------------
 # st_JY_qrCodeGenVCard0.py - Ver0 (7/27/2023)
@@ -70,10 +71,10 @@ from st_JY_qrCodedVCard0_2_util import(
 # cellphone_input='520-730-4695'
 # url_input='www.rayem.com'
 
-vcard_img='my-vcard.svg'
-vcard_img_color='my-vcard_color.svg'
-vcard_anim='my-vcard_anim.gif'
-vcard_anim_name='my-vcard_anim'
+                        # vcard_img='my-vcard.svg'
+                        # vcard_img_color='my-vcard_color.svg'
+                        # vcard_anim_gif='my-vcard_anim.gif'
+                        # vcard_anim_name='my-vcard_anim'
 
 # jyvc={
 #     'name': 'John Yoon',
@@ -162,6 +163,13 @@ def qrCodedVcard_anim():
 
     with st.form('vCard in QR Code'):
         if st.form_submit_button('Create QR Code'):
+            # # Create a name of an output vcard image (i.e., vcard_img) with a time stamp. - SubVer0_2 (12/04/2023) 
+            now0=datetime.datetime.now()
+            timestamp0=str(now0.strftime('%Y%m%d_%H%M%S'))
+            vcard_anim_gif='my-vcard-gif_'+f'{timestamp0}.gif'
+            vcard_anim_name='my-vcard-anim_'+f'{timestamp0}'
+            # ------------------------------- END OF SubVer0_2 (12/04/2023) ------------------------------------------
+
             if bckground_img is not None:
                 if qr_info_mode=='Contents':
                     qr_info=contents
@@ -174,7 +182,7 @@ def qrCodedVcard_anim():
                                     background=bckground_img.name,
                                     # background='sample_640.gif',
                                     # background='SampleGIFImage_350kbmb.gif',  # https://sample-videos.com/download-sample-gif-image.php
-                                    target=vcard_anim,  # Save a QR code on a local drive.
+                                    target=vcard_anim_gif,  # Save a QR code on a local drive.
                                     # target=out,
                                     scale=scale,
                                     kind='gif')
@@ -183,10 +191,10 @@ def qrCodedVcard_anim():
                 with c2:
                     for i in range(7):
                         st.markdown('')    
-                    st.image(vcard_anim)
+                    st.image(vcard_anim_gif)
                     # st.image(out)
             
-            else:
+            else:  # i.e., a background animation image is not available.
                 st.warning('Scroll down in the left side panel and   \nselect an image/gif for animated background')
                 st.subheader('Dummy Sample QR Code:')
                 qrcode=segno.make(vcard_anim_name, error='h')
@@ -209,7 +217,9 @@ def qrCodedVcard_anim():
                     st.image(out)
             
             for i in range(14):
-                st.markdown('')       
+                st.markdown('')  
+
+            st.info(f'INSTRUCTION:   \nSaved a QR Code as "{vcard_anim_gif}"')
         # ---------------------------------- END OF st.form('vCard in QR Code) ----------------------------------------
     
     if st.button('Clear',key='clearbtn_anim0'):
