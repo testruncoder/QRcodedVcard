@@ -18,8 +18,17 @@ from st_JY_qrCodedVCard0_2_color_lib import qrCodedVcard_color
 from st_JY_qrCodedVCard0_2_anim_lib import qrCodedVcard_anim
 
 
-# st_JY_qrCodedVCard_streamliltIO.py
-# Ver0_2 (9/22/2023)
+# st_JY_qrCodedVCard_0_2_streamliltIO.py  - Ver0_2 (12/04, 9/22/2023)
+# - Main app code for deployment to streamlit cloud;
+# - A version of code that is deployed to streamlit cloud server by commenting out some code lines.
+# - Just converted the file name from st_JY_qrCodeGenVCard0_2.py to st_JY_qrCodedVCard_streamliltIO.py
+# - Update:
+# (1) Create an output SVG file name with a time stamp (12/04/2023)
+# => Refer to C:\Users\email\OneDrive\DesktopSP7\JY_pyTools\QRcodedVCard\st_JY_qrCodedVCard0_3.py
+
+# -----------------------------------------------------------------------------------------------------------------
+# st_JY_qrCodeGenVCard0_1_streamlitIO.py - Ver0_1 (9/22/2023)
+# - Note that 'github.com/testruncoder' has been set up with the python file name "st_JY_qrCodeGenVCard0_1.py", though.
 
 # -----------------------------------------------------------------------------------------------------------------
 # st_JY_qrCodeGenVCard0_2.py - Ver0_2 (9/22/2023)
@@ -31,7 +40,6 @@ from st_JY_qrCodedVCard0_2_anim_lib import qrCodedVcard_anim
 # (2) st_JY_qrCodedVCard0_2_mono_lib.py
 # (3) st_JY_qrCodedVCard0_2_color_lib.py
 # (4) st_JY_qrCodedVCard0_2_anim_lib.py
-
 
 # -----------------------------------------------------------------------------------------------------------------
 # st_JY_qrCodeGenVCard0_1.py - Ver0_1 (9/11, 7/28/2023)
