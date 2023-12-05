@@ -9,6 +9,8 @@ import numpy as np
 
 import segno  # Ver0_1 (7/28/2023)
 
+import datetime  # SubVer0_2 (12/04/2023)
+
 from streamlit_option_menu import option_menu  # Ver0_1 (9/11/2023)
 
 # from urlib.request import urlopen  # To delete 7/29/2023
@@ -21,8 +23,10 @@ from st_JY_qrCodedVCard0_2_util import(
 # # # # venv: stvenv # # #
 
 # -----------------------------------------------------------------------------------------------------------------
-# st_JY_qrCodeGenVCard0_2_color_lib.py - Ver0_2 (9/22/2023)
+# st_JY_qrCodeGenVCard0_2_color_lib.py - Ver0_2 (12/04, 9/22/2023)
 # - Create a standard QR code in color;
+# - Updates:
+# (1) Create an output SVG file name with a time stamp (12/04/2023)
 
 
 # -----------------------------------------------------------------------------------------------------------------
@@ -68,8 +72,7 @@ from st_JY_qrCodedVCard0_2_util import(
 # cellphone_input='520-730-4695'
 # url_input='www.rayem.com'
 
-vcard_img='my-vcard.svg'
-vcard_img_color='my-vcard_color.svg'
+# vcard_img_color='my-vcard_color.svg'  # Disabled - SubVer0_2 (12/04/2023)
 
 # jyvc={
 #     'name': 'John Yoon',
@@ -165,6 +168,12 @@ def qrCodedVcard_color():
             #                             email=('me@example.org', 'another@example.org'),
             #                             url=['http://www.example.org', 'https://example.org/~joe'])
 
+            # # Create a name of an output vcard image (i.e., vcard_img) with a time stamp. - SubVer0_2 (12/04/2023) 
+            now0=datetime.datetime.now()
+            timestamp0=str(now0.strftime('%Y%m%d_%H%M%S'))
+            vcard_img_color='my-vcard-color_'+f'{timestamp0}.svg'
+            # ------------------------------- END OF SubVer0_2 (12/04/2023) ------------------------------------------
+
             # qrcode.save(vcard_img_color, dark='darkred',light='lightblue')
             qrcode.save(vcard_img_color, scale=scale, 
                         # dark='navy', #000080
@@ -190,7 +199,9 @@ def qrCodedVcard_color():
                 render_svg(line_string_color)
 
             for i in range(14):
-                st.markdown('')       
+                st.markdown('')    
+
+            st.info(f'INSTRUCTION:   \nSaved a QR Code as "{vcard_img_color}"')
         # ---------------------------------- END OF st.form('vCard in QR Code) ----------------------------------------
     
     if st.button('Clear',key='clearbtn_color0'):
@@ -200,4 +211,4 @@ def qrCodedVcard_color():
         st.sidebar.markdown('')
         st.markdown('')
 
-# ############################ END OF MAIN ###############################
+# ############################ END OF qrCodedVcard_color() ###############################
